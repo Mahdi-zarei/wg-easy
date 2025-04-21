@@ -16,9 +16,9 @@ This guide will help you migrate from `v14` to version `v15` of `wg-easy`.
 
 Before you start the migration, make sure to backup your existing configuration files.
 
-Go into the Web Ui and click the Backup button, this should download a `wg0.json` file.
+Go into the Web Ui and click the Backup button, this should download a `wg1.json` file.
 
-Or download the `wg0.json` file from your container volume to your pc.
+Or download the `wg1.json` file from your container volume to your pc.
 
 You will need this file for the migration
 
@@ -42,7 +42,7 @@ docker-compose down
 
 Follow the instructions in the [Getting Started][docs-getting-started] or [Basic Installation][docs-examples] guide to start the new container.
 
-In the setup wizard, select that you already already have a configuration file and upload the `wg0.json` file you downloaded in the backup step.
+In the setup wizard, select that you already already have a configuration file and upload the `wg1.json` file you downloaded in the backup step.
 
 [docs-getting-started]: ../../getting-started.md
 [docs-examples]: ../../examples/tutorials/basic-installation.md

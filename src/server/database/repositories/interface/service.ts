@@ -32,7 +32,7 @@ export class InterfaceService {
 
   async get() {
     const wgInterface = await this.#statements.get.execute({
-      interface: 'wg0',
+      interface: 'wg1',
     });
     if (!wgInterface) {
       throw new Error('Interface not found');
@@ -42,7 +42,7 @@ export class InterfaceService {
 
   updateKeyPair(privateKey: string, publicKey: string) {
     return this.#statements.updateKeyPair.execute({
-      interface: 'wg0',
+      interface: 'wg1',
       privateKey,
       publicKey,
     });
@@ -52,7 +52,7 @@ export class InterfaceService {
     return this.#db
       .update(wgInterface)
       .set(data)
-      .where(eq(wgInterface.name, 'wg0'))
+      .where(eq(wgInterface.name, 'wg1'))
       .execute();
   }
 
@@ -60,7 +60,7 @@ export class InterfaceService {
     return this.#db.transaction(async (tx) => {
       const oldCidr = await tx.query.wgInterface
         .findFirst({
-          where: eq(wgInterface.name, 'wg0'),
+          where: eq(wgInterface.name, 'wg1'),
           columns: { ipv4Cidr: true, ipv6Cidr: true },
         })
         .execute();
@@ -72,7 +72,7 @@ export class InterfaceService {
       await tx
         .update(wgInterface)
         .set(data)
-        .where(eq(wgInterface.name, 'wg0'))
+        .where(eq(wgInterface.name, 'wg1'))
         .execute();
 
       const clients = await tx.query.client.findMany().execute();

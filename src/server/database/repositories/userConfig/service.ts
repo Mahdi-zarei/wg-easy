@@ -22,7 +22,7 @@ export class UserConfigService {
   }
 
   async get() {
-    const userConfig = await this.#statements.get.execute({ interface: 'wg0' });
+    const userConfig = await this.#statements.get.execute({ interface: 'wg1' });
 
     if (!userConfig) {
       throw new Error('User config not found');
@@ -43,13 +43,13 @@ export class UserConfigService {
       await tx
         .update(userConfig)
         .set({ host, port })
-        .where(eq(userConfig.id, 'wg0'))
+        .where(eq(userConfig.id, 'wg1'))
         .execute();
 
       await tx
         .update(wgInterface)
         .set({ port })
-        .where(eq(wgInterface.name, 'wg0'))
+        .where(eq(wgInterface.name, 'wg1'))
         .execute();
     });
   }
@@ -58,7 +58,7 @@ export class UserConfigService {
     return this.#db
       .update(userConfig)
       .set(data)
-      .where(eq(userConfig.id, 'wg0'))
+      .where(eq(userConfig.id, 'wg1'))
       .execute();
   }
 }

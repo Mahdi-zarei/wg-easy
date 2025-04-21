@@ -93,7 +93,7 @@ function getPrivateInformation() {
   const obj: Record<string, { ipv4: string[]; ipv6: string[] }> = {};
 
   for (const name of interfaceNames) {
-    if (name === 'wg0') {
+    if (name === 'wg1') {
       continue;
     }
 

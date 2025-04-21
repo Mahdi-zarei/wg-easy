@@ -6,9 +6,9 @@ hide:
 
 Here are some frequently asked questions or errors about `wg-easy`. If you have a question that is not answered here, please feel free to open a discussion on GitHub.
 
-## Error: WireGuard exited with the error: Cannot find device "wg0"
+## Error: WireGuard exited with the error: Cannot find device "wg1"
 
-This error indicates that the WireGuard interface `wg0` does not exist. This can happen if the WireGuard kernel module is not loaded or if the interface was not created properly.
+This error indicates that the WireGuard interface `wg1` does not exist. This can happen if the WireGuard kernel module is not loaded or if the interface was not created properly.
 
 To resolve this issue, you can try the following steps:
 

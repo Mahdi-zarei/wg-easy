@@ -79,7 +79,7 @@ export class ClientService {
       const clients = await tx.query.client.findMany().execute();
       const clientInterface = await tx.query.wgInterface
         .findFirst({
-          where: eq(wgInterface.name, 'wg0'),
+          where: eq(wgInterface.name, 'wg1'),
         })
         .execute();
 
@@ -135,7 +135,7 @@ export class ClientService {
     return this.#db.transaction(async (tx) => {
       const clientInterface = await tx.query.wgInterface
         .findFirst({
-          where: eq(wgInterface.name, 'wg0'),
+          where: eq(wgInterface.name, 'wg1'),
         })
         .execute();
 
